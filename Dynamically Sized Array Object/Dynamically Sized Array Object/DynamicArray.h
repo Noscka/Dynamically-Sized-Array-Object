@@ -11,8 +11,8 @@ private:
 public:
 	DynamicArray();
 	void Append(char charToAdd);						// Adds a character to the Array
-	void Replace(char CharToReplace, int position);		// Replaces a character in the Array
 	void Remove(int position);							// Remove a character from position (replace with blank)
+	void Replace(char CharToReplace, int position);		// Replaces a character in the Array
 
 	// Get private variables
 	int GetArraySize();

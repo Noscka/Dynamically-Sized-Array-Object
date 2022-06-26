@@ -7,24 +7,17 @@ DynamicArray::DynamicArray()
     ArrayStepSize = 2;
 
     Array = new char[ArraySize]();
-    std::cout << "Array: " << Array << std::endl;
 }
 
 void DynamicArray::Append(char charToAdd)
 {
-    std::cout << "Adding To array: " << charToAdd << std::endl;
-
     if (ArrayIndexPointer >= ArraySize) // if Current Index pointer is more then the array size (trying to add to OutOfRange space)
     {
-        printf("Expanding\n");
-
         char* TempArray = new char[ArraySize](); // Create new array which will store the original values
 
         for (int i = 0; i < ArraySize; i++) // assign/copy all values from CharArray to Temp
         {
-            char ch = Array[i];
             TempArray[i] = Array[i];
-            std::cout << "TempArray[" << i << "] <- " << ch << std::endl;
         }
 
         ArraySize += ArrayStepSize; // expand the Array size
@@ -36,9 +29,8 @@ void DynamicArray::Append(char charToAdd)
         */
         for (int i = 0; i < ArraySize - ArrayStepSize; i++)
         {
-            char ch = TempArray[i];
             Array[i] = TempArray[i];
-            std::cout << "CharArray[" << i << "] <- " << ch << std::endl;
+
         }
 
         delete[] TempArray;
@@ -46,6 +38,28 @@ void DynamicArray::Append(char charToAdd)
 
     Array[ArrayIndexPointer] = charToAdd;
     ArrayIndexPointer++;
+}
+
+void DynamicArray::Remove(int position)
+{
+    if (position >= ArraySize || position < 0)// check if the position to remove is in array range
+    {
+        throw std::out_of_range("position was out of range of the array");
+        return;
+    }    
+
+    Array[position] = ' ';
+}
+
+void DynamicArray::Replace(char CharToReplace, int position)
+{
+    if (position >= ArraySize || position < 0)// check if the position to remove is in array range
+    {
+        throw std::out_of_range("position was out of range of the array");
+        return;
+    }
+
+    Array[position] = CharToReplace;
 }
 
 int DynamicArray::GetArraySize()
