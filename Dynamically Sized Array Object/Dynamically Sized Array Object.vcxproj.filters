@@ -11,15 +11,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Dynamically Sized Array Object.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dynamically Sized Array Object\DynamicArray.cpp">
+    <ClCompile Include="DynamicArrayObjectFiles\DynamicArray.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Dynamically Sized Array Object\DynamicArray.h">
+    <ClInclude Include="DynamicArrayObjectFiles\DynamicArray.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

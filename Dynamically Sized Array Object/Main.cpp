@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Dynamically Sized Array Object/DynamicArray.h"
+#include "DynamicArrayObjectFiles/DynamicArray.h"
 
 int main()
 {
