@@ -40,17 +40,6 @@ void DynamicArray::Append(char charToAdd)
     ArrayIndexPointer++;
 }
 
-void DynamicArray::Remove(int position)
-{
-    if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
-    {
-        throw std::out_of_range("position was out of range of the array");
-        return;
-    }    
-
-    Array[position] = ' ';
-}
-
 void DynamicArray::Replace(char CharToReplace, int position)
 {
     if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
@@ -60,6 +49,17 @@ void DynamicArray::Replace(char CharToReplace, int position)
     }
 
     Array[position] = CharToReplace;
+}
+
+void DynamicArray::Remove(int position)
+{
+    if (position >= (ArrayIndexPointer - 1) || position < 0)// check if the position to remove is in array range
+    {
+        throw std::out_of_range("position was out of range of the array");
+        return;
+    }
+
+    // CREATE FUNCTION
 }
 
 int DynamicArray::GetArraySize()

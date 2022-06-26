@@ -9,10 +9,10 @@ private:
 	int ArrayIndexPointer;	// keeps track amount of objects in array
 	int ArrayStepSize;		// how much the array will get increased by when it reaches the limit
 public:
-	DynamicArray();
-	void Append(char charToAdd);						// Adds a character to the Array
-	void Remove(int position);							// Remove a character from position (replace with blank)
-	void Replace(char CharToReplace, int position);		// Replaces a character in the Array
+	DynamicArray();									// Constructor
+	void Append(char charToAdd);					// Adds a character to the Array
+	void Replace(char CharToReplace, int position);	// Replaces a character in the Array
+	void Remove(int position);						// Removes character and moves everything infront of it back
 
 	// Get private variables
 	int GetArraySize();
