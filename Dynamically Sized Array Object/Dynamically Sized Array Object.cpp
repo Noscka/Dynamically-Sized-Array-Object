@@ -12,7 +12,7 @@ int main()
         Array.Append(ch);
     }
 
-    Array.Remove(25);
+    Array.Replace('h', 22);
 
     std::cout << "Char Array at end: " << Array << std::endl;
     return 0;

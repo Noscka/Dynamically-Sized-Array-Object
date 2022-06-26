@@ -42,7 +42,7 @@ void DynamicArray::Append(char charToAdd)
 
 void DynamicArray::Remove(int position)
 {
-    if (position >= ArraySize || position < 0)// check if the position to remove is in array range
+    if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
     {
         throw std::out_of_range("position was out of range of the array");
         return;
@@ -53,7 +53,7 @@ void DynamicArray::Remove(int position)
 
 void DynamicArray::Replace(char CharToReplace, int position)
 {
-    if (position >= ArraySize || position < 0)// check if the position to remove is in array range
+    if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
     {
         throw std::out_of_range("position was out of range of the array");
         return;
