@@ -56,7 +56,22 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const DynamicArray& Array)
 	{
-		os << Array.Array;
+		if (std::is_same<ArrayDataType, std::string>::value || std::is_same<ArrayDataType, char>::value) // if type is text type, output as text
+		{
+			os << Array.Array;
+		}
+		else  // if type is any other "list" the array with comman
+		{
+			for (int i = 0; i < Array.ArrayIndexPointer; i++)
+			{
+				os << Array.Array[i];
+
+				if (!(i == Array.ArrayIndexPointer-1))
+				{
+					os << ", ";
+				}
+			}
+		}
 		return os;
 	}
 
