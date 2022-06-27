@@ -50,6 +50,7 @@ public:
 	void Remove(int position);															// Removes Object and moves everything infront of it back
 
 	// Get private variables
+	ArrayDataType* GetArray();
 	int GetArraySize();
 	int GetArrayIndexPointer();
 	int GetArrayStepSize();

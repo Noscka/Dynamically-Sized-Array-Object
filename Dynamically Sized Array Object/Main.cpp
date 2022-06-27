@@ -25,8 +25,6 @@ public:
 
 int main()
 {
-
-
     DynamicArray<DATestData> Array = DynamicArray<DATestData>(); // Create object
 
     //char textArray[24] = "TestTextWhichMakesSense"; // Test text to allow for easy mass append
@@ -38,10 +36,13 @@ int main()
     Array.Append(DATestData(2));
     Array.Append(DATestData(6));
 
-    Array[0] = DATestData(8);
+    //Array[0] = DATestData(8);
 
     //std::cout << Array[1] << std::endl;
 
-    std::cout << "Char Array at end: " << Array << std::endl;
+    DATestData* DATD = Array.GetArray();
+
+    std::cout << "Array at end: " << Array << std::endl;
+    std::cout << "Gotten Array is: " << DATD[0] << std::endl;
     return 0;
 }

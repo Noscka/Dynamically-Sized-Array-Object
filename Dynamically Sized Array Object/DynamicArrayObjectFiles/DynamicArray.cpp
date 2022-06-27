@@ -110,6 +110,12 @@ void DynamicArray<ArrayDataType>::Remove(int position)
 }
 
 template<class ArrayDataType>
+ArrayDataType* DynamicArray<ArrayDataType>::GetArray()
+{
+    return Array;
+}
+
+template<class ArrayDataType>
 int DynamicArray<ArrayDataType>::GetArraySize()
 {
     return ArraySize;
