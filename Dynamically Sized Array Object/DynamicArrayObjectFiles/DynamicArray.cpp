@@ -36,6 +36,8 @@ void DynamicArray::Append(char charToAdd)
         delete[] TempArray;
     }
 
+    std::cout << charToAdd << std::endl;
+
     Array[ArrayIndexPointer] = charToAdd;
     ArrayIndexPointer++;
 }
@@ -59,7 +61,11 @@ void DynamicArray::Remove(int position)
         return;
     }
 
-    // CREATE FUNCTION
+    for (int i = position; i < (ArrayIndexPointer-1); i++)
+    {
+        Array[i] = Array[i + 1];
+    }
+    ArrayIndexPointer--;
 }
 
 int DynamicArray::GetArraySize()

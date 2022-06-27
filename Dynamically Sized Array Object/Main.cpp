@@ -9,10 +9,15 @@ int main()
 
     for (char ch : textArray)
     {
-        Array.Append(ch);
+        if (!(ch == 0))
+        {
+            std::cout << "char: " << ch << " | int: " << (int)ch << std::endl;
+            Array.Append(ch);
+        }
     }
-
-    Array.Replace('h', 22);
+    Array.Remove(1);
+    Array.Append('g');
+    Array.Append('g');
 
     std::cout << "Char Array at end: " << Array << std::endl;
     return 0;
