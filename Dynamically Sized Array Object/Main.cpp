@@ -18,3 +18,5 @@ int main()
     std::cout << "Char Array at end: " << Array << std::endl;
     return 0;
 }
+
+// TODO: create DynamicArray for all types instead of just char
