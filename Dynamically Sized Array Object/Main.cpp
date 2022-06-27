@@ -3,13 +3,13 @@
 
 int main()
 {
-    DynamicArray Array = DynamicArray();
+    DynamicArray Array = DynamicArray(); // Create object
 
-    char textArray[24] = "TestTextWhichMakesSense";
+    char textArray[24] = "TestTextWhichMakesSense"; // Test text to allow for easy mass append
 
-    for (char ch : textArray)
+    for (char ch : textArray) // foreach loop to append all characters
     {
-        if (!(ch == 0))
+        if (!(ch == 0)) // exclude escape character for tests (makes it so anything after the escape character won't be shown)
         {
             std::cout << "char: " << ch << " | int: " << (int)ch << std::endl;
             Array.Append(ch);
