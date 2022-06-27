@@ -38,7 +38,9 @@ int main()
     Array.Append(DATestData(2));
     Array.Append(DATestData(6));
 
-    std::cout << Array[1] << std::endl;
+    Array[0] = DATestData(8);
+
+    //std::cout << Array[1] << std::endl;
 
     std::cout << "Char Array at end: " << Array << std::endl;
     return 0;

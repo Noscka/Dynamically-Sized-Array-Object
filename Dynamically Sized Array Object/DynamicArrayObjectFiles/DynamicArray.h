@@ -80,7 +80,7 @@ public:
 	/// </summary>
 	/// <param name="position"> - position of the value wanted</param>
 	/// <returns>value in the position</returns>
-	ArrayDataType operator[](int position)
+	ArrayDataType &operator[](int position)
 	{
 		return Array[position];
 	}
