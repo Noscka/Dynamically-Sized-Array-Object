@@ -27,27 +27,27 @@ public:
 	/// </summary>
 	/// <param name="ArrayToAdd"> - the array to append</param>
 	/// <param name="size"> - size of the array</param>
-	/// <param name="includeEscape">(default = false) - if escape characters should be appended as well</param>
+	/// <param name="includeEscape">(default = false) -  !TEXT DATA TYPES ONLY! if escape characters should be appended as well</param>
 	void ArrayAppend(ArrayDataType ArrayToAdd[], int size, bool includeEscape = false);	// Adds an array to the Dynamic Array
 
 	/// <summary>
-	/// Append single characters
+	/// Append single Object
 	/// </summary>
-	/// <param name="charToAdd"> - character to add</param>
-	void Append(ArrayDataType charToAdd);												// Adds a character to the Array
+	/// <param name="ObjectToAdd"> - Object to add</param>
+	void Append(ArrayDataType ObjectToAdd);												// Adds a Object to the Array
 
 	/// <summary>
-	/// Replaces a a chosen positin with the chosen character
+	/// Replaces a a chosen positin with the chosen Object
 	/// </summary>
-	/// <param name="ReplaceCharacter"> - Character to place in the position</param>
-	/// <param name="position"> - position to put the character in</param>
-	void Replace(ArrayDataType ReplaceCharacter, int position);							// Replaces a character in the Array
+	/// <param name="ReplaceObject"> - Object to place in the position</param>
+	/// <param name="position"> - position to put the Object in</param>
+	void Replace(ArrayDataType ReplaceObject, int position);							// Replaces a Object in the Array
 
 	/// <summary>
-	/// Remove and move all characters infront, back 1 spot
+	/// Remove and move all Object infront, back 1 spot
 	/// </summary>
 	/// <param name="position"> - Position to remove</param>
-	void Remove(int position);															// Removes character and moves everything infront of it back
+	void Remove(int position);															// Removes Object and moves everything infront of it back
 
 	// Get private variables
 	int GetArraySize();

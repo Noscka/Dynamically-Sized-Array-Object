@@ -18,42 +18,52 @@ DynamicArray<ArrayDataType>::DynamicArray(int StartSize, int StepSize)
 
     // ! DO NOT CHANGE !
     ArrayIndexPointer = 0;
-    Array = new char[ArraySize]();
+    Array = new ArrayDataType[ArraySize]();
 }
 
 template<class ArrayDataType>
 void DynamicArray<ArrayDataType>::ArrayAppend(ArrayDataType ArrayToAdd[], int size, bool includeEscape)
 {
-    for (int i = 0; i < size; ++i) // for loop to get and append all characters
+    if (std::is_same<ArrayDataType, std::string>::value || std::is_same<ArrayDataType, char>::value) // For Text types only
     {
-        if (includeEscape) // if IncludeEscape is true, append all characters
+        for (int i = 0; i < size; ++i) // for loop to get and append all character
         {
-            Append(ArrayToAdd[i]); // Append character to array
+            if (includeEscape) // if IncludeEscape is true, append all character
+            {
+                Append(ArrayToAdd[i]); // Append character to array
+            }
+            else if (!(ArrayToAdd[i] == 0)) // if IncludeEscape is false, include all chars that aren't null
+            {
+                Append(ArrayToAdd[i]); // Append character to array
+            }
         }
-        else if (!(ArrayToAdd[i] == 0)) // if IncludeEscape is false, include all chars that aren't null
+    }
+    else
+    {
+        for (int i = 0; i < size; ++i) // for loop to get and append all Array Objects
         {
-            Append(ArrayToAdd[i]); // Append character to array
+            Append(ArrayToAdd[i]);
         }
     }
 }
 
 template<class ArrayDataType>
-void DynamicArray<ArrayDataType>::Append(ArrayDataType charToAdd)
+void DynamicArray<ArrayDataType>::Append(ArrayDataType ObjectToAdd)
 {
     if (ArrayIndexPointer >= ArraySize) // if Current Index pointer is more then the array size (trying to add to OutOfRange space)
     {
         ArrayDataType* TempArray = new ArrayDataType[ArraySize](); // Create new array which will store the original values
 
-        for (int i = 0; i < ArraySize; i++) // assign/copy all values from CharArray to Temp
+        for (int i = 0; i < ArraySize; i++) // assign/copy all values from Array to Temp
         {
             TempArray[i] = Array[i];
         }
 
         ArraySize += ArrayStepSize; // expand the Array size
-        Array = new ArrayDataType[ArraySize](); // over ride CharArray with new, bigger, array
+        Array = new ArrayDataType[ArraySize](); // over ride Array with new, bigger, array
 
         /*
-        ArraySize-2 calculates TempArray size
+        ArraySize-ArrayStepSize calculates TempArray size
         Copy all values from Temp array to "old" expanded array
         */
         for (int i = 0; i < ArraySize - ArrayStepSize; i++)
@@ -65,14 +75,14 @@ void DynamicArray<ArrayDataType>::Append(ArrayDataType charToAdd)
         delete[] TempArray;
     }
 
-    std::cout << charToAdd << std::endl;
+    std::cout << ObjectToAdd << std::endl;
 
-    Array[ArrayIndexPointer] = charToAdd;
+    Array[ArrayIndexPointer] = ObjectToAdd;
     ArrayIndexPointer++;
 }
 
 template<class ArrayDataType>
-void DynamicArray<ArrayDataType>::Replace(ArrayDataType ReplaceCharacter, int position)
+void DynamicArray<ArrayDataType>::Replace(ArrayDataType ReplaceObject, int position)
 {
     if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
     {
@@ -80,7 +90,7 @@ void DynamicArray<ArrayDataType>::Replace(ArrayDataType ReplaceCharacter, int po
         return;
     }
 
-    Array[position] = ReplaceCharacter;
+    Array[position] = ReplaceObject;
 }
 
 template<class ArrayDataType>
