@@ -150,10 +150,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="DynamicArrayObjectFiles\DynamicArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DynamicArrayObjectFiles\DynamicArray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DynamicArrayObjectFiles\DynamicArray.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

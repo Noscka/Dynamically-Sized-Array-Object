@@ -1,6 +1,5 @@
-#include "DynamicArray.h"
-
-DynamicArray::DynamicArray()
+template<class ArrayDataType>
+DynamicArray<ArrayDataType>::DynamicArray()
 {
     // Default values, can be changed
     ArraySize = 10;
@@ -8,10 +7,11 @@ DynamicArray::DynamicArray()
 
     // ! DO NOT CHANGE !
     ArrayIndexPointer = 0;
-    Array = new char[ArraySize]();
+    Array = new ArrayDataType[ArraySize]();
 }
 
-DynamicArray::DynamicArray(int StartSize, int StepSize)
+template<class ArrayDataType>
+DynamicArray<ArrayDataType>::DynamicArray(int StartSize, int StepSize)
 {
     ArraySize = StartSize;
     ArrayStepSize = StepSize;
@@ -21,7 +21,8 @@ DynamicArray::DynamicArray(int StartSize, int StepSize)
     Array = new char[ArraySize]();
 }
 
-void DynamicArray::ArrayAppend(char ArrayToAdd[], int size, bool includeEscape)
+template<class ArrayDataType>
+void DynamicArray<ArrayDataType>::ArrayAppend(ArrayDataType ArrayToAdd[], int size, bool includeEscape)
 {
     for (int i = 0; i < size; ++i) // for loop to get and append all characters
     {
@@ -36,11 +37,12 @@ void DynamicArray::ArrayAppend(char ArrayToAdd[], int size, bool includeEscape)
     }
 }
 
-void DynamicArray::Append(char charToAdd)
+template<class ArrayDataType>
+void DynamicArray<ArrayDataType>::Append(ArrayDataType charToAdd)
 {
     if (ArrayIndexPointer >= ArraySize) // if Current Index pointer is more then the array size (trying to add to OutOfRange space)
     {
-        char* TempArray = new char[ArraySize](); // Create new array which will store the original values
+        ArrayDataType* TempArray = new ArrayDataType[ArraySize](); // Create new array which will store the original values
 
         for (int i = 0; i < ArraySize; i++) // assign/copy all values from CharArray to Temp
         {
@@ -48,7 +50,7 @@ void DynamicArray::Append(char charToAdd)
         }
 
         ArraySize += ArrayStepSize; // expand the Array size
-        Array = new char[ArraySize](); // over ride CharArray with new, bigger, array
+        Array = new ArrayDataType[ArraySize](); // over ride CharArray with new, bigger, array
 
         /*
         ArraySize-2 calculates TempArray size
@@ -69,7 +71,8 @@ void DynamicArray::Append(char charToAdd)
     ArrayIndexPointer++;
 }
 
-void DynamicArray::Replace(char ReplaceCharacter, int position)
+template<class ArrayDataType>
+void DynamicArray<ArrayDataType>::Replace(ArrayDataType ReplaceCharacter, int position)
 {
     if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
     {
@@ -80,7 +83,8 @@ void DynamicArray::Replace(char ReplaceCharacter, int position)
     Array[position] = ReplaceCharacter;
 }
 
-void DynamicArray::Remove(int position)
+template<class ArrayDataType>
+void DynamicArray<ArrayDataType>::Remove(int position)
 {
     if (position >= (ArrayIndexPointer - 1) || position < 0)// check if the position to remove is in array range
     {
@@ -95,17 +99,20 @@ void DynamicArray::Remove(int position)
     ArrayIndexPointer--;
 }
 
-int DynamicArray::GetArraySize()
+template<class ArrayDataType>
+int DynamicArray<ArrayDataType>::GetArraySize()
 {
     return ArraySize;
 }
 
-int DynamicArray::GetArrayIndexPointer()
+template<class ArrayDataType>
+int DynamicArray<ArrayDataType>::GetArrayIndexPointer()
 {
     return ArrayIndexPointer;
 }
 
-int DynamicArray::GetArrayStepSize()
+template<class ArrayDataType>
+int DynamicArray<ArrayDataType>::GetArrayStepSize()
 {
     return ArrayStepSize;
 }

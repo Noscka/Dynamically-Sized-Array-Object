@@ -1,61 +1,12 @@
 #include <iostream>
 #include "DynamicArrayObjectFiles/DynamicArray.h"
 
-class CustomData
-{
-public:
-    int Storage;
-
-    CustomData(int i)
-    {
-        Storage = i;
-    }
-
-    int operator+(const CustomData& other)
-    {
-        return Storage + other.Storage;
-    }
-
-    friend std::ostream& operator<<(std::ostream& os, const CustomData& input)
-    {
-        os << input.Storage;
-        return os;
-    }
-};
-
-template<class t>
-t add(t num1, t num2)
-{
-    return num1 + num2;
-}
-
-template<class DataType>
-class AddingClass
-{
-public:
-    DataType add(DataType num1, DataType num2)
-    {
-        return num1 + num2;
-    }
-};
-
 int main()
 {
-    AddingClass<CustomData> ac = AddingClass<CustomData>();
+    DynamicArray<int> Array = DynamicArray<int>(); // Create object
 
-
-    CustomData a = CustomData(3);
-    CustomData b = CustomData(4);
-
-    //std::cout << a+b << std::endl;
-
-    std::cout << ac.add(a, b) << std::endl;
-
-    return 0;
-
-    DynamicArray Array = DynamicArray(); // Create object
-
-    char textArray[24] = "TestTextWhichMakesSense"; // Test text to allow for easy mass append
+    //char textArray[24] = "TestTextWhichMakesSense"; // Test text to allow for easy mass append
+    int textArray[] = {1,5,2,6,1,2,7,8,4,2,35,1,25,15,6}; // Test text to allow for easy mass append
 
     Array.ArrayAppend(textArray, 24);
 
@@ -68,5 +19,3 @@ int main()
     std::cout << "Char Array at end: " << Array << std::endl;
     return 0;
 }
-
-// TODO: create DynamicArray for all types instead of just char

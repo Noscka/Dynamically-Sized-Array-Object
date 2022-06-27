@@ -1,11 +1,12 @@
 #pragma once
 #include <iostream>
 
+template<class ArrayDataType>
 class DynamicArray
 {
 private:
 	int ArraySize;			// Array starting size and the size after it is resized
-	char* Array;			// Pointer to Array
+	ArrayDataType* Array;	// Pointer to Array
 	int ArrayIndexPointer;	// keeps track amount of objects in array
 	int ArrayStepSize;		// how much the array will get increased by when it reaches the limit
 public:
@@ -27,26 +28,26 @@ public:
 	/// <param name="ArrayToAdd"> - the array to append</param>
 	/// <param name="size"> - size of the array</param>
 	/// <param name="includeEscape">(default = false) - if escape characters should be appended as well</param>
-	void ArrayAppend(char ArrayToAdd[], int size, bool includeEscape = false);	// Adds an array to the Dynamic Array
+	void ArrayAppend(ArrayDataType ArrayToAdd[], int size, bool includeEscape = false);	// Adds an array to the Dynamic Array
 
 	/// <summary>
 	/// Append single characters
 	/// </summary>
 	/// <param name="charToAdd"> - character to add</param>
-	void Append(char charToAdd);												// Adds a character to the Array
+	void Append(ArrayDataType charToAdd);												// Adds a character to the Array
 
 	/// <summary>
 	/// Replaces a a chosen positin with the chosen character
 	/// </summary>
 	/// <param name="ReplaceCharacter"> - Character to place in the position</param>
 	/// <param name="position"> - position to put the character in</param>
-	void Replace(char ReplaceCharacter, int position);							// Replaces a character in the Array
+	void Replace(ArrayDataType ReplaceCharacter, int position);							// Replaces a character in the Array
 
 	/// <summary>
 	/// Remove and move all characters infront, back 1 spot
 	/// </summary>
 	/// <param name="position"> - Position to remove</param>
-	void Remove(int position);													// Removes character and moves everything infront of it back
+	void Remove(int position);															// Removes character and moves everything infront of it back
 
 	// Get private variables
 	int GetArraySize();
@@ -64,8 +65,10 @@ public:
 	/// </summary>
 	/// <param name="position"> - position of the value wanted</param>
 	/// <returns>value in the position</returns>
-	char operator[](int position)
+	ArrayDataType operator[](int position)
 	{
 		return Array[position];
 	}
 };
+
+#include "DynamicArray.cpp"

@@ -14,13 +14,11 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicArrayObjectFiles\DynamicArray.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DynamicArrayObjectFiles\DynamicArray.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
+    <ClInclude Include="DynamicArrayObjectFiles\DynamicArray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DynamicArrayObjectFiles\DynamicArray.cpp" />
   </ItemGroup>
 </Project>
