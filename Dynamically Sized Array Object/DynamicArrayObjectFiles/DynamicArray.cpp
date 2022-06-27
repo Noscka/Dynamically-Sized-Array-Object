@@ -2,10 +2,22 @@
 
 DynamicArray::DynamicArray()
 {
-    ArraySize = 1;
-    ArrayIndexPointer = 0;
-    ArrayStepSize = 2;
+    // Default values, can be changed
+    ArraySize = 10;
+    ArrayStepSize = 5;
 
+    // ! DO NOT CHANGE !
+    ArrayIndexPointer = 0;
+    Array = new char[ArraySize]();
+}
+
+DynamicArray::DynamicArray(int StartSize, int StepSize)
+{
+    ArraySize = StartSize;
+    ArrayStepSize = StepSize;
+
+    // ! DO NOT CHANGE !
+    ArrayIndexPointer = 0;
     Array = new char[ArraySize]();
 }
 
@@ -57,7 +69,7 @@ void DynamicArray::Append(char charToAdd)
     ArrayIndexPointer++;
 }
 
-void DynamicArray::Replace(char CharToReplace, int position)
+void DynamicArray::Replace(char ReplaceCharacter, int position)
 {
     if (position >= (ArrayIndexPointer-1) || position < 0)// check if the position to remove is in array range
     {
@@ -65,7 +77,7 @@ void DynamicArray::Replace(char CharToReplace, int position)
         return;
     }
 
-    Array[position] = CharToReplace;
+    Array[position] = ReplaceCharacter;
 }
 
 void DynamicArray::Remove(int position)
