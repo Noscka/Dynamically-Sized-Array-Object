@@ -58,4 +58,14 @@ public:
 		os << Array.Array;
 		return os;
 	}
+
+	/// <summary>
+	/// [] operator which acts the same as the Array [] operator
+	/// </summary>
+	/// <param name="position"> - position of the value wanted</param>
+	/// <returns>value in the position</returns>
+	char operator[](int position)
+	{
+		return Array[position];
+	}
 };

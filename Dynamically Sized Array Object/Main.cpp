@@ -13,6 +13,8 @@ int main()
     Array.Append('g');
     Array.Append('g');
 
+    std::cout << Array[2] << std::endl;
+
     std::cout << "Char Array at end: " << Array << std::endl;
     return 0;
 }
