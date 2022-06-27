@@ -9,6 +9,21 @@ DynamicArray::DynamicArray()
     Array = new char[ArraySize]();
 }
 
+void DynamicArray::ArrayAppend(char ArrayToAdd[], int size, bool includeEscape)
+{
+    for (int i = 0; i < size; ++i) // for loop to get and append all characters
+    {
+        if (includeEscape) // if IncludeEscape is true, append all characters
+        {
+            Append(ArrayToAdd[i]); // Append character to array
+        }
+        else if (!(ArrayToAdd[i] == 0)) // if IncludeEscape is false, include all chars that aren't null
+        {
+            Append(ArrayToAdd[i]); // Append character to array
+        }
+    }
+}
+
 void DynamicArray::Append(char charToAdd)
 {
     if (ArrayIndexPointer >= ArraySize) // if Current Index pointer is more then the array size (trying to add to OutOfRange space)
