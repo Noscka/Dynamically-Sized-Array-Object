@@ -36,13 +36,9 @@ int main()
     Array.Append(DATestData(2));
     Array.Append(DATestData(6));
 
-    //Array[0] = DATestData(8);
-
-    //std::cout << Array[1] << std::endl;
-
-    DATestData* DATD = Array.GetArray();
-
-    std::cout << "Array at end: " << Array << std::endl;
-    std::cout << "Gotten Array is: " << DATD[0] << std::endl;
+    for(DATestData obj : Array)
+    {
+        std::cout << obj.NumForTest << std::endl;
+    }
     return 0;
 }

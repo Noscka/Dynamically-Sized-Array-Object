@@ -75,8 +75,6 @@ void DynamicArray<ArrayDataType>::Append(ArrayDataType ObjectToAdd)
         delete[] TempArray;
     }
 
-    std::cout << ObjectToAdd << std::endl;
-
     Array[ArrayIndexPointer] = ObjectToAdd;
     ArrayIndexPointer++;
 }

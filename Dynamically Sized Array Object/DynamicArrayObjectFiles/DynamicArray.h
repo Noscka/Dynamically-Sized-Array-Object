@@ -9,6 +9,9 @@ private:
 	ArrayDataType* Array;	// Pointer to Array
 	int ArrayIndexPointer;	// keeps track amount of objects in array
 	int ArrayStepSize;		// how much the array will get increased by when it reaches the limit
+
+	typedef ArrayDataType* iterator;
+	typedef const ArrayDataType* const_iterator;
 public:
 	/// <summary>
 	/// Constructor to set all the variables
@@ -54,6 +57,12 @@ public:
 	int GetArraySize();
 	int GetArrayIndexPointer();
 	int GetArrayStepSize();
+
+	// For loop range-based function
+	iterator begin() { return &Array[0]; }
+	const_iterator begin() const { return &Array[0]; }
+	iterator end() { return &Array[ArrayIndexPointer]; }
+	const_iterator end() const { return &Array[ArrayIndexPointer]; }
 
 	friend std::ostream& operator<<(std::ostream& os, const DynamicArray& Array)
 	{
