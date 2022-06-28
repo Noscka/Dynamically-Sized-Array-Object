@@ -58,12 +58,15 @@ public:
 	int GetArrayIndexPointer();
 	int GetArrayStepSize();
 
+#pragma region For Loop Functions
 	// For loop range-based function
 	iterator begin() { return &Array[0]; }
 	const_iterator begin() const { return &Array[0]; }
 	iterator end() { return &Array[ArrayIndexPointer]; }
 	const_iterator end() const { return &Array[ArrayIndexPointer]; }
+#pragma endregion
 
+#pragma region Operators
 	friend std::ostream& operator<<(std::ostream& os, const DynamicArray& Array)
 	{
 		if (std::is_same<ArrayDataType, std::string>::value || std::is_same<ArrayDataType, char>::value) // if type is text type, output as text
@@ -76,7 +79,7 @@ public:
 			{
 				os << Array.Array[i];
 
-				if (!(i == Array.ArrayIndexPointer-1))
+				if (!(i == Array.ArrayIndexPointer - 1))
 				{
 					os << ", ";
 				}
@@ -90,10 +93,11 @@ public:
 	/// </summary>
 	/// <param name="position"> - position of the value wanted</param>
 	/// <returns>value in the position</returns>
-	ArrayDataType &operator[](int position)
+	ArrayDataType& operator[](int position)
 	{
 		return Array[position];
 	}
+#pragma endregion
 };
 
 #include "DynamicArray.cpp"

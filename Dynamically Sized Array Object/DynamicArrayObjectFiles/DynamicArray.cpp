@@ -1,3 +1,4 @@
+#pragma region Constructors
 template<class ArrayDataType>
 DynamicArray<ArrayDataType>::DynamicArray()
 {
@@ -20,7 +21,9 @@ DynamicArray<ArrayDataType>::DynamicArray(int StartSize, int StepSize)
     ArrayIndexPointer = 0;
     Array = new ArrayDataType[ArraySize]();
 }
+#pragma endregion
 
+#pragma region Array Modification
 template<class ArrayDataType>
 void DynamicArray<ArrayDataType>::ArrayAppend(ArrayDataType ArrayToAdd[], int size, bool includeEscape)
 {
@@ -106,7 +109,9 @@ void DynamicArray<ArrayDataType>::Remove(int position)
     }
     ArrayIndexPointer--;
 }
+#pragma endregion
 
+#pragma region Variables
 template<class ArrayDataType>
 ArrayDataType* DynamicArray<ArrayDataType>::GetArray()
 {
@@ -130,3 +135,4 @@ int DynamicArray<ArrayDataType>::GetArrayStepSize()
 {
     return ArrayStepSize;
 }
+#pragma endregion
