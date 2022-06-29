@@ -103,10 +103,11 @@ void DynamicArray<ArrayDataType>::Remove(int position)
         return;
     }
 
-    for (int i = position; i < (ArrayIndexPointer-1); i++)
+    for (int i = position; i < (ArrayIndexPointer-1); i++) // moving all back
     {
         Array[i] = Array[i + 1];
     }
+    Array[ArrayIndexPointer-1] = NULL; // make last character blank
     ArrayIndexPointer--;
 }
 #pragma endregion
