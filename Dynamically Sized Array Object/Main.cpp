@@ -25,20 +25,33 @@ public:
 
 int main()
 {
-    DynamicArray<DATestData> Array = DynamicArray<DATestData>(); // Create object
+    DynamicArray<int> Array = DynamicArray<int>();
+    DynamicArray<int> ArrayS = DynamicArray<int>();
+    DynamicArray<DynamicArray<int>> TDArray = DynamicArray<DynamicArray<int>>();
 
-    //char textArray[24] = "TestTextWhichMakesSense"; // Test text to allow for easy mass append
-    //int textArray[] = {1,5,2,6,1,2,7,8,4,2,35,1,25,15,6}; // Test numbers to allow for easy mass append
-    
-    //Array.ArrayAppend(textArray, 24);
+    Array.Append(2);
+    Array.Append(3);
+    Array.Append(4);
+    Array.Append(5);
 
-    //Array.Remove(1);
-    Array.Append(DATestData(2));
-    Array.Append(DATestData(6));
+    ArrayS.Append(5);
+    ArrayS.Append(51);
+    ArrayS.Append(521);
+    ArrayS.Append(667);
+    ArrayS.Append(51);
+    ArrayS.Append(743);
 
-    for(DATestData obj : Array)
+    TDArray.Append(Array);
+    TDArray.Append(ArrayS);
+
+    for (DynamicArray<int> ArrayInside : TDArray)
     {
-        std::cout << obj.NumForTest << std::endl;
+        for (int intInside : ArrayInside)
+        {
+            std::cout << intInside << std::endl;
+        }
+        std::cout << " ||| " << std::endl;
     }
+
     return 0;
 }
