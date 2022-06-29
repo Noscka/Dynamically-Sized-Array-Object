@@ -25,32 +25,24 @@ public:
 
 int main()
 {
-    DynamicArray<int> Array = DynamicArray<int>();
-    DynamicArray<int> ArrayS = DynamicArray<int>();
-    DynamicArray<DynamicArray<int>> TDArray = DynamicArray<DynamicArray<int>>();
+    DynamicArray<char> Array = DynamicArray<char>();
+    DynamicArray<char> ArrayS = DynamicArray<char>();
+    DynamicArray<DynamicArray<char>> TDArray = DynamicArray<DynamicArray<char>>();
 
-    Array.Append(2);
-    Array.Append(3);
-    Array.Append(4);
-    Array.Append(5);
+    Array.ArrayAppend((char*)"abc", 3);
 
-    ArrayS.Append(5);
-    ArrayS.Append(51);
-    ArrayS.Append(521);
-    ArrayS.Append(667);
-    ArrayS.Append(51);
-    ArrayS.Append(743);
+    ArrayS.ArrayAppend((char*)"def", 3);
 
     TDArray.Append(Array);
     TDArray.Append(ArrayS);
 
-    for (DynamicArray<int> ArrayInside : TDArray)
+    for (DynamicArray<char> ArrayInside : TDArray)
     {
-        for (int intInside : ArrayInside)
+        for (char intInside : ArrayInside)
         {
-            std::cout << intInside << std::endl;
+            std::cout << intInside;
         }
-        std::cout << " ||| " << std::endl;
+        std::cout << ", " << std::endl;
     }
 
     return 0;
