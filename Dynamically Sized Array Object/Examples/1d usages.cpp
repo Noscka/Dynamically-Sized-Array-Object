@@ -65,4 +65,10 @@ int main()
 
 	std::cout << CharArray << std::endl;
 
+	/*
+	Clear the array
+	*/
+	CharArray.Clear();
+
+	std::cout << CharArray << std::endl;
 }

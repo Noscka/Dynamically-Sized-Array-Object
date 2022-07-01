@@ -45,5 +45,16 @@ int main()
         std::cout << ", " << std::endl;
     }
 
+    TDArray.Clear();
+
+    for (DynamicArray<char> ArrayInside : TDArray)
+    {
+        for (char intInside : ArrayInside)
+        {
+            std::cout << intInside;
+        }
+        std::cout << ", " << std::endl;
+    }
+
     return 0;
 }

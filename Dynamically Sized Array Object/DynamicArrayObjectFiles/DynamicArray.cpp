@@ -1,3 +1,4 @@
+#include "DynamicArray.h"
 #pragma region Constructors
 template<class ArrayDataType>
 DynamicArray<ArrayDataType>::DynamicArray()
@@ -109,6 +110,13 @@ void DynamicArray<ArrayDataType>::Remove(int position)
     }
     Array[ArrayIndexPointer-1] = NULL; // make last character blank
     ArrayIndexPointer--;
+}
+
+template<class ArrayDataType>
+void DynamicArray<ArrayDataType>::Clear()
+{
+    ArrayIndexPointer = 0;
+    Array = new ArrayDataType[ArraySize]();
 }
 #pragma endregion
 

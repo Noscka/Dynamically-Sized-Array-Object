@@ -52,6 +52,11 @@ public:
 	/// <param name="position"> - Position to remove</param>
 	void Remove(int position);															// Removes Object and moves everything infront of it back
 
+	/// <summary>
+	/// Clear the dynamic array to the original size
+	/// </summary>
+	void Clear();																		// basically restart the array
+
 	// Get private variables
 	ArrayDataType* GetArray();
 	int GetArraySize();

@@ -17,10 +17,10 @@
     <None Include="DynamicArrayObjectFiles\DynamicArray.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Examples\2d usages.cpp">
+    <ClCompile Include="Examples\1d usages.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Examples\1d usages.cpp">
+    <ClCompile Include="Examples\2d usages.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
